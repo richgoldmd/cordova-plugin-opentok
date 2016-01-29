@@ -73,6 +73,7 @@
       <framework src="CFNetwork.framework" />
 
       <!-- Adopts project's config.xml to include the OpenTokPlugin and domain whitelists -->
+      <!-- Correct parent attribute to "/*" - richgoldmd -->	
       <config-file target="config.xml" parent="/*">
           <feature name="OpenTokPlugin">
               <param name="ios-package" value="OpenTokPlugin"/>
