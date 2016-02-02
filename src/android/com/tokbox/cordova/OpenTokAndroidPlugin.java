@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,6 +114,12 @@ public class OpenTokAndroidPlugin extends CordovaPlugin implements
           } else {
               ratioIndex = 9;
           }
+
+          DisplayMetrics metrics = new DisplayMetrics();
+          cordova.getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+          widthRatio = (float) mProperty.getDouble(ratioIndex) * metrics.density;
+          heightRatio = (float) mProperty.getDouble(ratioIndex + 1) * metrics.density;
 
           widthRatio = (float) mProperty.getDouble(ratioIndex);
           heightRatio = (float) mProperty.getDouble(ratioIndex + 1);
